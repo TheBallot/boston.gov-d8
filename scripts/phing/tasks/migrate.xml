@@ -104,7 +104,7 @@
     <echo message="Migrates user accounts into site." level="info"/>
     <property name="php.command" override="true"
               description="Code to change the uid 101 user init field to 'anon'."
-              value='\Drupal\Core\Database\Database::getConnection("default", "migrate")->update("users")->fields(["init" => "anon"])->condition("uid", 101, "=")->execute();'>
+              value='\Drupal\Core\Database\Database::getConnection("default", "migrate")->update("users")->fields(["init" => "anon", "name" => "anon"])->condition("uid", 101, "=")->execute();'>
     </property>
     <exec description="Fixes the init name for uid=101."
           command="${drush.cmd} eval '${php.command}'" level="info"/>
@@ -336,7 +336,7 @@
     <if>
       <!-- If property migration.options not overridden, use default. -->
       <not><isset property="migration.options"/></not>
-      <then><property name="migration.options" value="--force --execute-dependencies --feedback=100 -v"/></then>
+      <then><property name="migration.options" value="--force --execute-dependencies --verbose"/></then>
     </if>
     <if>
       <!-- If additional migration.options provided, then add them here. -->
@@ -348,6 +348,7 @@
           command="drush migrate:import ${migration.configs} ${migration.options} "
           passthru="true"
           logoutput="true"
+          checkreturn="false"
           returnProperty="lastReturn"
     />
   </target>
