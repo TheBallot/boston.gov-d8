@@ -214,6 +214,7 @@ permissions:
   - 'update paragraph content upcoming_events'
   - 'update paragraph content user_action'
   - 'update paragraph content video'
+  - 'use text format filter_null'
   - 'use workbench_moderation my drafts tab'
   - 'view all unpublished content'
   - 'view files'

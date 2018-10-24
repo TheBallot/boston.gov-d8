@@ -1,0 +1,25 @@
+uuid: 25ca380e-705a-4fd0-8cad-961df97a8dea
+langcode: en
+status: true
+dependencies:
+  module:
+    - shortcode
+name: 'null'
+format: filter_null
+weight: 0
+filters:
+  shortcode:
+    id: shortcode
+    provider: shortcode
+    status: false
+    weight: 0
+    settings:
+      img: '1'
+      dropcap: '1'
+      quote: '1'
+      button: '1'
+      item: '1'
+      highlight: '1'
+      clear: '1'
+      random: '1'
+      link: '1'
